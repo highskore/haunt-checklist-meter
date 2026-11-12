@@ -1,0 +1,20 @@
+[plugin]
+id = "dev.haunt.checklist-meter"
+name = "Checklist meter"
+description = "Show a repo's spec or TODO checklist progress on the agent's Haunt row"
+version = "0.1.0"
+api = "0.5"
+entry = "target/wasm32-wasip2/release/haunt_plugin.wasm"
+license = "MIT"
+
+[capabilities]
+# Turn edges and file events say when a checklist may have changed; no event text is kept.
+events = ["agent.session-start", "agent.prompt", "agent.stop", "agent.tool", "agent.file-edited"]
+decorate = true
+fs_read = ["${cwd}/specs/*.md", "${cwd}/TODO.md"]
+
+[settings]
+files = { type = "list", default = ["specs/*.md", "TODO.md"], description = "Checklist files, relative to the agent's folder; only these two are granted" }
+path = { type = "bool", default = true, description = "Show the file's path after the meta line" }
+bar = { type = "bool", default = true, description = "Show a progress bar under the row" }
+unverified = { type = "bool", default = false, description = "Also follow events without the tab's nonce, which anything in the terminal can forge" }
