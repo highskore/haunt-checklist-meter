@@ -1,8 +1,21 @@
+<div align="center">
+
+<img src="docs/icon.png" width="96" alt="">
+
 # Checklist meter
 
-Show a repo's spec or TODO checklist progress on the agent's Haunt row.
+**Show a repo's spec or TODO checklist progress on the agent's Haunt row.**
 
-Agents working through a long plan tick boxes in a file such as `specs/plan.md`. This plugin counts the ticked and total Markdown checkboxes (`- [x]` / `- [ ]`, any list style, code blocks skipped) and shows them on the agent's row: `spec 11/18` on the right, the file after the meta line (`phase-3 · specs/plan.md`) and a thin bar under the row. A finished list reads `spec 18/18 ✓` and the bar goes.
+[![Haunt plugin](https://img.shields.io/badge/Haunt-plugin-D97757)](https://github.com/highskore/haunt-hackathon)
+![Plugin API 0.5](https://img.shields.io/badge/plugin%20API-0.5-111)
+![WASM component](https://img.shields.io/badge/WASM-component-654ff0?logo=webassembly&logoColor=white)
+![MIT licence](https://img.shields.io/badge/licence-MIT-6b7280)
+
+<img src="docs/screenshot.png" width="720" alt="Haunt's sidebar with the web-api row showing checklist meter's todo 3/3 ✓ label and TODO.md on its meta line">
+
+</div>
+
+Agents working through a long plan tick boxes in a file such as `specs/plan.md`. This plugin counts the ticked and total Markdown checkboxes (`- [x]` / `- [ ]`, any list style, code blocks skipped) and shows them on the agent's row: `spec 11/18` on the right, the file after the meta line (`phase-3 · specs/plan.md`) and a thin bar under the row. A finished list reads `spec 18/18 ✓` and the bar goes. The word comes from the file: `TODO.md` reads `todo 3/3`.
 
 It reads `specs/*.md` and `TODO.md` in the agent's folder. With several files it shows the first with unticked boxes. It counts again when a turn starts or ends and after every edit. It doesn't ask to see the agents' file paths, so it can't tell which file an edit touched.
 
